@@ -174,8 +174,8 @@ export function RegisterForm({
 
               <Button type="submit" className="w-full h-12 text-base font-bold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300 animate-fade-up stagger-4 mt-2">
                 {path === pathname
-                  ? "Get Started as Provider"
-                  : "Create Account"}
+                  ? "Create a Provider Account"
+                  : "Create your account"}
               </Button>
 
               <FieldDescription className="text-center text-sm mt-4 animate-fade-up stagger-4">
