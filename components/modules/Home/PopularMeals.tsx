@@ -46,8 +46,8 @@ export function PopularMeals({ meals }: ProviderMealsGridProps) {
           <div className="w-20 h-20 bg-background rounded-3xl shadow-xl flex items-center justify-center mb-6">
             <UtensilsCrossed className="h-10 w-10 text-muted-foreground/40" />
           </div>
-          <h3 className="text-3xl font-black tracking-tight mb-2 text-foreground">Awaiting Masterpieces</h3>
-          <p className="text-muted-foreground font-medium max-w-sm">Our chefs are currently refining their menus. Check back shortly for new culinary experiences.</p>
+          <h3 className="text-2xl font-black tracking-tight mb-2 text-foreground">Awaiting Masterpieces</h3>
+          <p className="text-muted-foreground font-medium max-w-sm text-sm">Our chefs are currently refining their menus. Check back shortly for new culinary experiences.</p>
         </div>
       </section>
     );
@@ -66,12 +66,12 @@ export function PopularMeals({ meals }: ProviderMealsGridProps) {
             </div>
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600">Top Trending</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-foreground leading-tight">
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground leading-tight">
             Most Loved <span className="text-primary">Dishes</span>
           </h2>
         </div>
         <div className="flex flex-col gap-2 md:text-right">
-          <p className="text-muted-foreground font-medium text-lg leading-snug max-w-xs">
+          <p className="text-muted-foreground font-medium text-base leading-snug max-w-xs">
             Hand-picked selections based on customer reviews and popularity.
           </p>
           <Link href="/meals" className="group flex items-center md:justify-end gap-2 text-primary font-black uppercase tracking-widest text-[10px]">
@@ -125,7 +125,7 @@ export function PopularMeals({ meals }: ProviderMealsGridProps) {
 
             <CardContent className="p-6 space-y-4">
               <div className="space-y-1">
-                <h3 className="font-black text-xl tracking-tight text-foreground transition-colors group-hover:text-primary leading-tight line-clamp-1">
+                <h3 className="font-black text-lg tracking-tight text-foreground transition-colors group-hover:text-primary leading-tight line-clamp-1">
                   {meal.name}
                 </h3>
                 <p className="text-sm text-muted-foreground font-medium line-clamp-2 min-h-[40px]">
@@ -158,14 +158,14 @@ export function PopularMeals({ meals }: ProviderMealsGridProps) {
             <CardFooter className="p-6 pt-0 flex items-center justify-between gap-4">
               <div className="flex flex-col">
                 <span className="text-[9px] font-black uppercase tracking-widest text-muted-foreground/60 leading-none mb-1">Price</span>
-                <div className="flex items-center text-2xl font-black text-foreground">
+                <div className="flex items-center text-xl font-black text-foreground">
                   <span className="text-primary mr-0.5">৳</span>
                   {meal.price}
                 </div>
               </div>
               <Link
                 href={`/meals/${meal.id}`}
-                className="flex-1 h-14 inline-flex items-center justify-center bg-foreground text-background font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-primary hover:text-white transition-all duration-300 shadow-xl shadow-black/5 group/btn"
+                className="flex-1 h-12 inline-flex items-center justify-center bg-foreground text-background font-black uppercase tracking-widest text-[9px] rounded-2xl hover:bg-primary hover:text-white transition-all duration-300 shadow-xl shadow-black/5 group/btn"
               >
                 View Details
                 <ChevronRight className="h-4 w-4 ml-2 transition-transform group-hover/btn:translate-x-1" />

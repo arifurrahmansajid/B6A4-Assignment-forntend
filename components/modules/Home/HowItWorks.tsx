@@ -35,10 +35,10 @@ export const HowItWorks = () => {
             <span className="text-primary font-black text-[10px] uppercase tracking-[0.3em]">Elite Experience</span>
             <div className="h-[1px] w-8 bg-primary/40 rounded-full" />
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground tracking-tight leading-tight">
             How It <span className="text-primary italic">Works</span>
           </h2>
-          <p className="text-lg text-muted-foreground font-medium leading-relaxed">
+          <p className="text-base text-muted-foreground font-medium leading-relaxed">
             Experience the future of food delivery through our streamlined, elite three-step professional process.
           </p>
         </div>
@@ -51,7 +51,7 @@ export const HowItWorks = () => {
               className="group relative flex flex-col items-center text-center p-10 rounded-[2.5rem] bg-card/40 backdrop-blur-xl border border-border/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2"
             >
               {/* Step number watermark */}
-              <span className="absolute top-10 right-10 text-8xl font-black text-primary/5 pointer-events-none group-hover:text-primary/10 transition-colors">
+              <span className="absolute top-10 right-10 text-6xl font-black text-primary/5 pointer-events-none group-hover:text-primary/10 transition-colors">
                 0{index + 1}
               </span>
 
@@ -65,10 +65,10 @@ export const HowItWorks = () => {
 
               {/* Content */}
               <div className="space-y-4 relative z-10">
-                <h3 className="text-2xl font-black text-foreground tracking-tight group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-black text-foreground tracking-tight group-hover:text-primary transition-colors">
                   {step.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed font-medium">
+                <p className="text-sm text-muted-foreground leading-relaxed font-medium">
                   {step.description}
                 </p>
               </div>

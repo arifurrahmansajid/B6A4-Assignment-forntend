@@ -74,18 +74,18 @@ export function CategorySlider({ categories }: CategorySliderProps) {
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border/40 pb-10">
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div className="flex items-center gap-3">
               <div className="p-2 bg-primary/10 rounded-lg">
                 <Sparkles className="h-4 w-4 text-primary" />
               </div>
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Explore Cuisines</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-foreground leading-tight">
+            <h2 className="text-3xl md:text-4xl font-black tracking-tight text-foreground leading-tight">
               Popular <span className="text-primary">Categories</span>
             </h2>
           </div>
-          <p className="text-muted-foreground max-w-sm text-lg font-medium">
+          <p className="text-muted-foreground max-w-sm text-base font-medium">
             Dive into a world of curated flavors ranging from local favorites to global delicacies.
           </p>
         </div>
@@ -125,7 +125,7 @@ export function CategorySlider({ categories }: CategorySliderProps) {
 
                       {/* Content */}
                       <div className="absolute inset-0 flex flex-col justify-end p-6 space-y-2">
-                        <span className="text-white font-black text-lg md:text-xl transition-all duration-300 group-hover:text-primary leading-tight">
+                        <span className="text-white font-black text-base md:text-lg transition-all duration-300 group-hover:text-primary leading-tight">
                           {category.name}
                         </span>
                         <div className="flex items-center gap-2">

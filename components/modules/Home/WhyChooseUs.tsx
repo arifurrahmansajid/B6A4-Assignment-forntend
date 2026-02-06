@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import {
   ShieldCheck,
-  Truck,
   Clock,
   Star,
   Sparkles,
@@ -41,7 +40,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative py-24 bg-background overflow-hidden">
+    <section className="relative py-24 bg-background overflow-hidden transition-colors duration-500">
       {/* Decorative Blur */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -52,10 +51,10 @@ export default function WhyChooseUs() {
             <Sparkles className="h-3.5 w-3.5 text-primary" />
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">The Hero Standard</span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-foreground leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-foreground leading-tight">
             Why We Are <span className="bg-gradient-to-r from-primary to-emerald-500 bg-clip-text text-transparent">Unrivaled</span>
           </h2>
-          <p className="text-lg text-muted-foreground font-medium leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground font-medium leading-relaxed max-w-2xl mx-auto">
             We don&apos;t just deliver food; we provide an elite culinary gateway prioritized by speed, security, and absolute perfection.
           </p>
         </div>
@@ -75,10 +74,10 @@ export default function WhyChooseUs() {
                   </div>
                 </div>
                 <div className="space-y-3">
-                  <h3 className="text-2xl font-black tracking-tight text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-black tracking-tight text-foreground group-hover:text-primary transition-colors">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground font-medium leading-relaxed">
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
