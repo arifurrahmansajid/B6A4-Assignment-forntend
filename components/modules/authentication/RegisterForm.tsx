@@ -60,31 +60,43 @@ export function RegisterForm({
   });
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card className="overflow-hidden p-0">
+      <Card className="overflow-hidden border-none shadow-2xl ring-1 ring-border/50 bg-card/80 backdrop-blur-xl">
         <CardContent className="grid p-0 md:grid-cols-2">
           <form
-            className="p-6 md:p-8"
+            className="p-8 md:p-12 flex flex-col justify-center animate-fade-up"
             onSubmit={(e) => {
               e.preventDefault();
               form.handleSubmit();
             }}
           >
-            <FieldGroup>
+            <div className="mb-8 text-center md:text-left">
+              <h1 className="text-3xl font-bold tracking-tight text-foreground mb-2">
+                {path === pathname ? "Join as Partner" : "Create Account"}
+              </h1>
+              <p className="text-muted-foreground">
+                {path === pathname
+                  ? "Grow your business with FoodieHub"
+                  : "Join the FoodieHub community today"}
+              </p>
+            </div>
+
+            <FieldGroup className="gap-5">
               <form.Field
                 name="name"
                 children={(field) => {
                   const isInvalid =
                     field.state.meta.isTouched && !field.state.meta.isValid;
                   return (
-                    <Field>
-                      <FieldLabel htmlFor={field.name}>Name</FieldLabel>
+                    <Field className="animate-fade-up stagger-1">
+                      <FieldLabel htmlFor={field.name} className="text-sm font-semibold text-foreground/80">Full Name</FieldLabel>
                       <Input
                         type="text"
                         id={field.name}
                         name={field.name}
                         value={field.state.value ?? ""}
-                        placeholder="Enter full name"
+                        placeholder="John Doe"
                         onChange={(e) => field.handleChange(e.target.value)}
+                        className="h-12 bg-background/50 border-border/50 focus:border-primary/50 transition-all duration-300"
                       />
                       {isInvalid && (
                         <FieldError errors={field.state.meta.errors} />
@@ -100,15 +112,16 @@ export function RegisterForm({
                   const isInvalid =
                     field.state.meta.isTouched && !field.state.meta.isValid;
                   return (
-                    <Field>
-                      <FieldLabel htmlFor={field.name}>Email</FieldLabel>
+                    <Field className="animate-fade-up stagger-2">
+                      <FieldLabel htmlFor={field.name} className="text-sm font-semibold text-foreground/80">Email Address</FieldLabel>
                       <Input
                         type="email"
                         id={field.name}
                         name={field.name}
                         value={field.state.value ?? ""}
-                        placeholder="Enter email address"
+                        placeholder="name@example.com"
                         onChange={(e) => field.handleChange(e.target.value)}
+                        className="h-12 bg-background/50 border-border/50 focus:border-primary/50 transition-all duration-300"
                       />
                       {isInvalid && (
                         <FieldError errors={field.state.meta.errors} />
@@ -124,30 +137,30 @@ export function RegisterForm({
                   const isInvalid =
                     field.state.meta.isTouched && !field.state.meta.isValid;
                   return (
-                    <Field>
-                      <FieldLabel htmlFor={field.name}>Password</FieldLabel>
-                      <div className="relative">
+                    <Field className="animate-fade-up stagger-3">
+                      <FieldLabel htmlFor={field.name} className="text-sm font-semibold text-foreground/80">Password</FieldLabel>
+                      <div className="relative group">
                         <Input
                           type={showPassword ? "text" : "password"}
                           id={field.name}
                           name={field.name}
                           value={field.state.value ?? ""}
-                          placeholder="Enter password"
+                          placeholder="••••••••"
                           onChange={(e) => field.handleChange(e.target.value)}
-                          className="pr-10"
+                          className="pr-12 h-12 bg-background/50 border-border/50 focus:border-primary/50 transition-all duration-300"
                         />
                         <button
                           type="button"
                           onClick={() => setShowPassword(!showPassword)}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                          className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground/60 hover:text-foreground transition-colors duration-200"
                           aria-label={
                             showPassword ? "Hide password" : "Show password"
                           }
                         >
                           {showPassword ? (
-                            <EyeOff className="h-4 w-4" />
+                            <EyeOff className="h-5 w-5" />
                           ) : (
-                            <Eye className="h-4 w-4" />
+                            <Eye className="h-5 w-5" />
                           )}
                         </button>
                       </div>
@@ -159,27 +172,36 @@ export function RegisterForm({
                 }}
               />
 
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full h-12 text-base font-bold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300 animate-fade-up stagger-4 mt-2">
                 {path === pathname
-                  ? "Create a Provider Account"
-                  : "Create your account"}
+                  ? "Get Started as Provider"
+                  : "Create Account"}
               </Button>
-              <FieldDescription className="text-center">
+
+              <FieldDescription className="text-center text-sm mt-4 animate-fade-up stagger-4">
                 Already have an account?{" "}
-                <Link href="/login" className="text-primary hover:underline">
+                <Link href="/login" className="text-primary font-bold hover:underline">
                   Log In
                 </Link>
               </FieldDescription>
             </FieldGroup>
           </form>
-          <div className="bg-muted relative hidden md:block">
+          <div className="bg-muted relative hidden md:block overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-black/60 z-10" />
             <Image
               width={800}
-              height={400}
+              height={800}
               src="/hero-food.jpg"
-              alt="Image"
-              className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+              alt="Delicious Food"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-10000 hover:scale-110"
+              priority
             />
+            <div className="absolute bottom-12 left-12 right-12 z-20 text-white animate-fade-up">
+              <h2 className="text-3xl font-bold mb-4">Elevate your dining experience.</h2>
+              <p className="text-white/80 text-lg leading-relaxed">
+                Connect with the best restaurants and chefs in your area. Freshness and quality guaranteed.
+              </p>
+            </div>
           </div>
         </CardContent>
       </Card>
