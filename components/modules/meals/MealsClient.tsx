@@ -114,7 +114,7 @@ export function MealsClient({
         )}
 
         {/* Sidebar - Desktop Only for now to keep it "same feature" */}
-        <aside className="lg:col-span-3">
+        <aside className="lg:col-span-4">
           <MealFilters
             filters={filters}
             onFilterChange={handleFilterChange}
@@ -126,7 +126,7 @@ export function MealsClient({
         </aside>
 
         {/* Main Content */}
-        <main className="lg:col-span-9 space-y-10">
+        <main className="lg:col-span-8 space-y-10">
           {/* Enhanced Search Bar */}
           <div className="relative group">
             <div className="absolute inset-0 bg-primary/5 rounded-[2rem] blur-xl group-focus-within:bg-primary/10 transition-all duration-500" />
