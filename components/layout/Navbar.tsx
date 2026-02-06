@@ -53,17 +53,17 @@ export default function Navbar() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${isScrolled
-            ? "bg-background/80 backdrop-blur-lg shadow-md border-b"
-            : "bg-background border-b"
+          ? "bg-primary/95 backdrop-blur-lg shadow-md border-b border-primary/20"
+          : "bg-primary border-b border-primary/10"
           }`}
       >
         <div className="container mx-auto flex h-20 items-center justify-between px-4">
           {/* Left - Logo */}
           <Link href="/" className="text-xl font-bold flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-              <span className="text-white font-bold text-xl">F</span>
+            <div className="w-10 h-10 rounded-xl bg-background flex items-center justify-center">
+              <span className="text-primary font-bold text-xl">F</span>
             </div>
-            <span className="text-xl font-bold text-foreground">FoodieHub</span>
+            <span className="text-xl font-bold text-primary-foreground">FoodieHub</span>
           </Link>
 
           {/* Middle - Nav Items (Desktop) */}
@@ -74,9 +74,9 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`transition-colors duration-200 text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full ${isActive
-                      ? "text-foreground after:w-full"
-                      : "text-muted-foreground after:w-0"
+                  className={`transition-colors duration-200 text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-primary-foreground after:transition-all hover:after:w-full ${isActive
+                    ? "text-primary-foreground after:w-full"
+                    : "text-primary-foreground/70 hover:text-primary-foreground after:w-0"
                     }`}
                 >
                   {item.name}
@@ -90,15 +90,15 @@ export default function Navbar() {
             <CartButton />
             <ModeToggle />
             {isPending ? (
-              <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
+              <Loader2 className="h-5 w-5 animate-spin text-primary-foreground/60" />
             ) : session?.user ? (
               <ProfileDropdown user={session?.user} />
             ) : (
               <>
-                <Button variant="outline" asChild>
+                <Button variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10" asChild>
                   <Link href="/login">Login</Link>
                 </Button>
-                <Button variant="default" asChild>
+                <Button variant="secondary" asChild>
                   <Link href="/register">Register</Link>
                 </Button>
               </>
@@ -111,7 +111,7 @@ export default function Navbar() {
               <div className="flex items-center gap-2">
                 <ModeToggle />
                 <SheetTrigger asChild>
-                  <Button variant="secondary" size="icon">
+                  <Button variant="secondary" size="icon" className="bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 border-none">
                     <Menu className="h-6 w-6" />
                   </Button>
                 </SheetTrigger>
@@ -133,8 +133,8 @@ export default function Navbar() {
                           href={item.href}
                           onClick={() => setIsSheetOpen(false)}
                           className={`transition-colors duration-200 text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full ${isActive
-                              ? "text-foreground after:w-full"
-                              : "text-muted-foreground after:w-0"
+                            ? "text-foreground after:w-full"
+                            : "text-muted-foreground after:w-0"
                             }`}
                         >
                           {item.name}
