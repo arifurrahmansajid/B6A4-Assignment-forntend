@@ -95,7 +95,7 @@ export default function Navbar() {
               <ProfileDropdown user={session?.user} />
             ) : (
               <>
-                <Button variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10" asChild>
+                <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10" asChild>
                   <Link href="/login">Login</Link>
                 </Button>
                 <Button variant="secondary" asChild>
@@ -111,7 +111,7 @@ export default function Navbar() {
               <div className="flex items-center gap-2">
                 <ModeToggle />
                 <SheetTrigger asChild>
-                  <Button variant="secondary" size="icon" className="bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 border-none">
+                  <Button variant="ghost" size="icon" className="text-primary-foreground hover:bg-primary-foreground/10">
                     <Menu className="h-6 w-6" />
                   </Button>
                 </SheetTrigger>
