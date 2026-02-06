@@ -27,12 +27,17 @@ const Toaster = ({ ...props }: ToasterProps) => {
       toastOptions={{
         classNames: {
           toast:
-            "group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
-          description: "group-[.toast]:text-muted-foreground",
+            "group toast group-[.toaster]:border-border group-[.toaster]:shadow-lg",
+          title: "group-[.toast]:font-semibold",
+          description: "group-[.toast]:opacity-90",
           actionButton:
             "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
           cancelButton:
             "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground",
+          error: "group-[.toast]:!text-destructive-foreground",
+          success: "group-[.toast]:!text-success-foreground",
+          warning: "group-[.toast]:!text-yellow-950",
+          info: "group-[.toast]:!text-primary-foreground",
         },
       }}
       style={
@@ -49,6 +54,11 @@ const Toaster = ({ ...props }: ToasterProps) => {
           "--info-text": "var(--primary-foreground)",
           "--warning-bg": "oklch(0.7 0.15 80)",
           "--warning-text": "oklch(0.15 0.05 160)",
+          // Additional mappings for broader compatibility
+          "--toast-success-bg": "var(--success)",
+          "--toast-success-text": "var(--success-foreground)",
+          "--toast-error-bg": "var(--destructive)",
+          "--toast-error-text": "var(--destructive-foreground)",
         } as React.CSSProperties
       }
       {...props}
