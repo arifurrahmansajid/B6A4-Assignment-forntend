@@ -151,7 +151,7 @@ export function LoginForm({
           </FieldGroup>
         </form>
 
-        <div className="relative my-10">
+        {/* <div className="relative my-10">
           <div className="absolute inset-0 flex items-center">
             <span className="w-full border-t border-border/50" />
           </div>
@@ -169,7 +169,7 @@ export function LoginForm({
             <Github className="mr-2 h-5 w-5" />
             Github
           </Button>
-        </div>
+        </div> */}
 
         <p className="text-center text-sm text-muted-foreground mt-10">
           New to FoodieHub?{" "}
