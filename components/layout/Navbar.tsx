@@ -29,10 +29,12 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const { data: session, isPending } = authClient.useSession();
   const pathname = usePathname();
 
   useEffect(() => {
+    setIsMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
       setShowScrollTop(window.scrollY > 300);
@@ -89,7 +91,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <CartButton />
             <ModeToggle />
-            {isPending ? (
+            {!isMounted || isPending ? (
               <Loader2 className="h-5 w-5 animate-spin text-primary-foreground/60" />
             ) : session?.user ? (
               <ProfileDropdown user={session?.user} />
@@ -145,7 +147,7 @@ export default function Navbar() {
 
                   {/* Mobile Auth Buttons */}
                   <div className="flex flex-col gap-4 mt-4">
-                    {isPending ? (
+                    {!isMounted || isPending ? (
                       <div className="flex items-center justify-center py-2">
                         <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
                       </div>

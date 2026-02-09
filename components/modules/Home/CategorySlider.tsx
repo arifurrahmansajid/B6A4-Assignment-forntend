@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 import { Sparkles } from "lucide-react";
@@ -12,6 +12,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 
 type Category = {
@@ -27,11 +28,9 @@ type CategorySliderProps = {
 };
 
 export function CategorySlider({ categories }: CategorySliderProps) {
-  const autoplay = useRef(
-    Autoplay({
-      delay: 3500,
-      stopOnInteraction: false,
-    })
+  const [api, setApi] = useState<CarouselApi>();
+  const plugin = useRef(
+    Autoplay({ delay: 3500, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
   const getCategoryImage = (categoryName?: string) => {
@@ -92,7 +91,8 @@ export function CategorySlider({ categories }: CategorySliderProps) {
 
         {/* Carousel */}
         <Carousel
-          plugins={autoplay.current ? [autoplay.current] : []}
+          setApi={setApi}
+          plugins={[plugin.current]}
           opts={{
             align: "start",
             loop: true,
@@ -100,8 +100,6 @@ export function CategorySlider({ categories }: CategorySliderProps) {
             dragFree: true,
           }}
           className="w-full relative group/carousel"
-          onMouseEnter={() => autoplay.current?.stop()}
-          onMouseLeave={() => autoplay.current?.play()}
         >
           <CarouselContent className="-ml-6">
             {categories.map((category, index) => (

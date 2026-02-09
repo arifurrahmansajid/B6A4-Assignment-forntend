@@ -23,6 +23,14 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.kunekutepabu.us",
       },
+      {
+        protocol: "https",
+        hostname: "www.themealdb.com",
+      },
+      {
+        protocol: "https",
+        hostname: "i.ibb.co.com",
+      },
     ],
   },
   async rewrites() {
