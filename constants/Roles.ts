@@ -4,4 +4,4 @@ export const ROLES = {
   PROVIDER: "provider",
 } as const;
 
-export type Roles = (typeof ROLES)[keyof typeof ROLES];
+export type Roles = (typeof ROLES)[keyof typeof ];
